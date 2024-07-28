@@ -4,7 +4,7 @@ services:
   postgres:
     image: postgres:latest
     environment:
-      POSTGRES_USER: rodhy
+      POSTGRES_USER: abike
       POSTGRES_PASSWORD: secretPassw0rd
       POSTGRES_DB: ecommerce
     ports:
