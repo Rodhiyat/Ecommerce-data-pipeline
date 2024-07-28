@@ -61,7 +61,7 @@ create table if not exists e_commerce.order_payments
     payment_installments INT,
     payment_value NUMERIC,
     PRIMARY KEY (order_id, payment_sequential),
-    FOREIGN KEY (order_id) REFERENCES e_commerce.rders(order_id)    
+    FOREIGN KEY (order_id) REFERENCES e_commerce.orders(order_id)    
 );
 -- provide the command to copy order payments data into POSTGRES
 COPY e_commerce.order_payments (order_id, payment_sequential, payment_type, payment_installments,payment_value
@@ -72,8 +72,8 @@ FROM '/data/olist_order_payments_dataset.csv' DELIMITER ',' CSV HEADER;
 -- setup the order reviews 
 create table if not exists e_commerce.order_reviews
 (
-    review_id VARCHAR(32),
-    order_id VARCHAR(32),
+    review_id UUID,
+    order_id UUID,
     review_score INT,
     review_comment_title TEXT,
     review_comment_message TEXT,
@@ -139,4 +139,4 @@ create table if not exists e_commerce.order_items
 -- provide the command to copy orders data into POSTGRES
 COPY e_commerce.order_items (order_id, order_item_id, product_id, seller_id, shipping_limit_date, price, freight_value
 )
-FROM '/data/olist_orders_items_dataset.csv' DELIMITER ',' CSV HEADER;
+FROM '/data/olist_order_items_dataset.csv' DELIMITER ',' CSV HEADER;
