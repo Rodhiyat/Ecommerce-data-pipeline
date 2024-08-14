@@ -1,2 +1,6 @@
 venv
-pg_data
+src_db_data
+postgres-db-volume
+logs
+plugins
+
