@@ -71,6 +71,8 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+    env_file:
+      - .env
 
   airflow-scheduler:
     <<: *airflow-common
@@ -86,6 +88,8 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+    env_file:
+      - .env
 
   airflow-triggerer:
     <<: *airflow-common
@@ -101,6 +105,8 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+    env_file:
+      - .env
 
   airflow-init:
     <<: *airflow-common
@@ -179,6 +185,8 @@ services:
     user: "0:0"
     volumes:
       - ${AIRFLOW_PROJ_DIR:-.}:/sources
+    env_file:
+      - .env
 
   airflow-cli:
     <<: *airflow-common
@@ -192,3 +200,5 @@ services:
       - bash
       - -c
       - airflow
+    env_file:
+      - .env
