@@ -62,6 +62,10 @@ Initialize a new dbt project
 - Define the models to transform the raw data
 - Configure the schema for your models
 - run dbt models
-
-
+## Step 6: Analysis
+After successfully setting up the ETL pipeline and transforming the data with dbt, we can now answer the following analytical questions using the final models.
+#### 1. Which product categories have the highest sales?
+#### 2. What is the average delivery time for orders?
+#### 3. Which states have the highest number of orders?
+![Getting Started](./assets/analysis_and_visualization.png)
 
