@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: stg_products
+    description: "This model transforms raw product data into a cleaned staging table."
+    columns:
+      - name: product_id
+        description: "Unique identifier for the product."
+        tests:
+          - unique
+          - not_null
+      - name: product_category_name
+        description: "The name of the product category."
+
+  - name: stg_orders
+    description: "This model transforms raw orders, customers, and order items data into a cleaned staging table with necessary joins."
+    columns:
+      - name: order_id
+        description: "Unique identifier for the order."
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "Unique identifier for the customer."
+        tests:
+          - not_null
+      - name: customer_state
+        description: "State where the customer is located."
+      - name: order_status
+        description: "Current status of the order."
+      - name: order_purchase_timestamp
+        description: "Timestamp when the order was placed."
+      - name: order_delivered_customer_date
+        description: "Date when the order was delivered to the customer."
+      - name: order_item_id
+        description: "Unique identifier for the order item."
+        tests:
+          - not_null
+      - name: product_id
+        description: "Unique identifier for the product in the order."
+        tests:
+          - not_null
+      - name: price
+        description: "Price of the product in the order."
+      - name: freight_value
+        description: "Freight value associated with the order item."

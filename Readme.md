@@ -30,6 +30,7 @@ PG_CONN_ID="your postgresql airflow connection id"
 PG_SCHEMA="schema name"
 PG_TABLES=" your postgresql tables separated by a comma"
 CSV_FILENAMES="your csv files name (.csv) separated by a comma"
+_PIP_ADDITIONAL_REQUIREMENTS=
 ```
 
 ## Step 1: Data Ingestion into PostgreSQL
@@ -61,6 +62,12 @@ The folder contains the following;
 - Access the Airflow UI at http://localhost:8080 or via CLI. Login on the UI with the username and password configured in the docker-compose file.
 - Trigger the DAG in Airflow UI manually. This loads all the necessary files in bigquery.
 ## Step 5: Transforming and Modeling Data with dbt 
+- Set Up dbt Project:
+Initialize a new dbt project 
+- Configure your profiles.yml file to connect to BigQuery using the provided credentials.
+- Define the models to transform the raw data
+- Configure the schema for your models
+- run dbt models
 
 
 

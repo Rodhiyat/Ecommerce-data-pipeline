@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: fct_sales_by_category
+    description: "Final model for sales by category."
+    columns:
+      - name: product_category_name
+        description: "Category name of the product."
+        tests:
+          - not_null
+      - name: total_sales
+        description: "Total sales for the category."
+        tests:
+          - not_null
+
+  - name: fct_avg_delivery_time
+    description: "Final model for average delivery time."
+    columns:
+      - name: order_id
+        description: "Unique identifier for each order."
+        tests:
+          - unique
+          - not_null
+      - name: delivery_time_days
+        description: "Average delivery time for the order."
+        tests:
+          - not_null
+
+  - name: fct_orders_by_state
+    description: "Final model for orders by state."
+    columns:
+      - name: customer_state
+        description: "State where the customer is located."
+        tests:
+          - not_null
+      - name: order_count
+        description: "Total number of orders in the state."
+        tests:
+          - not_null
