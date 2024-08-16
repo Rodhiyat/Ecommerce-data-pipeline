@@ -13,12 +13,6 @@ This project involves developing an end-to-end ETL process using the *[Brazilian
 - Python 3.8+
 - dbt (Data Build Tool)
 
-## Project Structure
-- DAG File: pg_to_gcs_.py contains the DAG definition for the ETL pipeline.
-- Environment File: .env contains all the environment variables required for the pipeline.
-- Data Folder: Contains the raw CSV files.
-- Docker Compose File: docker-compose.yml sets up the required services (PostgreSQL, Airflow).
-
 ## Environment Variables
 ```
 BQ_CONN_ID="your google cloud airflow connection id"

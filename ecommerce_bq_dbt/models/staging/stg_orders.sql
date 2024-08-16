@@ -34,8 +34,8 @@ select
     orders.order_purchase_timestamp,
     orders.order_delivered_customer_date,
     order_items.product_id,
-    sum(order_items.price) as price,
-    sum(order_items.freight_value) as freight,
+    round(sum(order_items.price),2) as price,
+    round(sum(order_items.freight_value),2) as freight,
     sum(order_items.price) + sum(order_items.freight_value) as total_order_value
 from orders 
 left join customers 
