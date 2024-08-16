@@ -3,6 +3,5 @@ src_db_data
 postgres-db-volume
 logs
 plugins
-config
 .env
 __pycache__
