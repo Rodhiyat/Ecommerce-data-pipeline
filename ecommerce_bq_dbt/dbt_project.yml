@@ -1,0 +1,51 @@
+name: 'ecommerce_bq_dbt'
+version: '1.0.0'
+
+# This setting configures which "profile" dbt uses for this project.
+profile: 'ecommerce_bq_dbt'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:         # directories to be removed by `dbt clean`
+  - "target"
+  - "dbt_packages"
+
+# Define the models and their configurations
+models:
+  brazilian_ecommerce:
+
+    # Configuration for staging models
+    staging:
+      +schema: staging
+      +materialized: view
+      stg_orders:
+        description: "Staging model for orders data with necessary joins."
+      stg_products:
+        description: "Staging model for product data."
+
+    # Configuration for intermediate models
+    intermediate:
+      +schema: intermediate
+      +materialized: table
+      int_sales_by_category:
+        description: "Intermediate model aggregating sales data by product category."
+      int_avg_delivery_time:
+        description: "Intermediate model calculating average delivery time for each order."
+      int_orders_by_state:
+        description: "Intermediate model counting orders per state."
+
+    # Configuration for final models
+    final:
+      +schema: final
+      +materialized: table
+      fct_sales_by_category:
+        description: "Final model for sales by category."
+      fct_avg_delivery_time:
+        description: "Final model for average delivery time."
+      fct_orders_by_state:
+        description: "Final model for orders by state."

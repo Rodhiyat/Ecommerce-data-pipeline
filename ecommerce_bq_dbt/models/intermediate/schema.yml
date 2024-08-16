@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: int_orders_by_state
+    description: "Counts the total number of orders per state."
+    columns:
+      - name: customer_state
+        description: "State where the orders were placed."
+      - name: total_orders
+        description: "Total number of distinct orders per state."
+        tests:
+          - not_null
+          - unique
+
+  - name: int_sales_by_category
+    description: "Aggregates sales data by product category."
+    columns:
+      - name: product_id
+        description: "Unique identifier for the product."
+      - name: product_category_name
+        description: "Name of the product category."
+      - name: total_sales
+        description: "Total sales amount for the product in the category."
+        tests:
+          - not_null
+          - numeric
+
+  - name: int_avg_delivery_time
+    description: "Calculates the average delivery time for each order."
+    columns:
+      - name: order_id
+        description: "Unique identifier for the order."
+      - name: customer_state
+        description: "State where the order was placed."
+      - name: delivery_time_days
+        description: "Number of days taken for the order to be delivered."
+      - name: average_delivery_time_days
+        description: "Average of days taken for the order to be delivered."
+        tests:
+          - not_null
+          - numeric
